@@ -1,7 +1,7 @@
 # thingsboard-on-aws
 
 ## 1. Deploy infrastructure
-### Install terraform
+Install terraform
 ```
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
