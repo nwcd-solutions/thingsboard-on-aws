@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tb-js-executor
+  namespace: thingsboard
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: tb-js-executor
+  template:
+    metadata:
+      labels:
+        app: tb-js-executor
+    spec:
+      nodeSelector:
+        role: tb-node
+      containers:
+        - name: server
+          imagePullPolicy: Always
+          image: thingsboard/tb-js-executor:3.5.1
+          resources:
+            limits:
+              cpu: "100m"
+              memory: 400Mi
+            requests:
+              cpu: "100m"
+              memory: 100Mi
+          env:
+            - name: REMOTE_JS_EVAL_REQUEST_TOPIC
+              value: "js_eval.requests"
+            - name: LOGGER_LEVEL
+              value: "info"
+            - name: LOG_FOLDER
+              value: "logs"
+            - name: LOGGER_FILENAME
+              value: "tb-js-executor-%DATE%.log"
+            - name: DOCKER_MODE
+              value: "true"
+            - name: SCRIPT_BODY_TRACE_FREQUENCY
+              value: "1000"
+            - name: NODE_OPTIONS
+              value: "--max-old-space-size=200"
+          envFrom:
+            - configMapRef:
+                name: tb-kafka-config
+      restartPolicy: Always

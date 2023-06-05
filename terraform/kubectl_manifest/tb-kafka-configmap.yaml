@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tb-kafka-config
+  namespace: thingsboard
+  labels:
+    name: tb-kafka-config
+data:
+  TB_QUEUE_TYPE: kafka
+  TB_KAFKA_SERVERS: ${MSK_BOOTSTRAP_BROKER}
