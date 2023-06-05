@@ -1,6 +1,7 @@
 resource "kubectl_manifest" "tb-namespace" {
   yaml_body = file("kubectl_manifest/tb-namespace.yaml")
-  depends_on = [module.eks_blueprints.eks_cluster_id]
+  depends_on = [module.eks_blueprints.null_resource]
+  #depends_on = [module.eks_blueprints.eks_cluster_id]
 }
 
 resource "kubectl_manifest" "tb-node-db-configmap" {
