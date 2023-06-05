@@ -2,6 +2,8 @@
 
 ## 1. Deploy infrastructure
 ```
+git clone https://github.com/nwcd-solutions/thingsboard-on-aws.git
+cd thingsboard-on-aws/terraform
 terraform init
 ```
 ```
@@ -20,6 +22,7 @@ configure_kubectl = "aws eks --region us-east-2 update-kubeconfig --name eks-blu
 Execute the following command to run the initial setup of the database. This command will launch short-living ThingsBoard pod to provision necessary DB tables, indexes, etc
 
 ```
+cd ../kubenetes
  ./k8s-install-tb.sh --loadDemo
 ```
 Where:
