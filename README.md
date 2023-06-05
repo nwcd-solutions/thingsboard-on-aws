@@ -4,6 +4,9 @@
 ```
 git clone https://github.com/nwcd-solutions/thingsboard-on-aws.git
 cd thingsboard-on-aws/terraform
+```
+Next, run the following terraform CLI commands to provision the AWS resources.
+```
 terraform init
 ```
 ```
