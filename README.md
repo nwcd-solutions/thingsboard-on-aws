@@ -46,16 +46,16 @@ After few minutes you may call kubectl get pods. If everything went fine, you sh
 Every pod should be in the READY state.
 
 You should also deploy the transport microservices. Omit the protocols that you don’t use in order to save resources:
-# HTTP Transport (optional)
+### HTTP Transport (optional)
 ```
 kubectl apply -f transports/tb-http-transport.yml
 ```
-# MQTT transport (optional)
+### MQTT transport (optional)
 ```
 kubectl apply -f transports/tb-mqtt-transport.yml
 ```
 ## 4.Configure Load Balancers
-# Configure HTTP(S) Load Balancer
+### Configure HTTP(S) Load Balancer
 Configure HTTP(S) Load Balancer to access web interface of your ThingsBoard instance. 
 Use AWS Certificate Manager to create or import SSL certificate. Note your certificate ARN.
 Edit the load balancer configuration and replace YOUR_HTTPS_CERTIFICATE_ARN with your certificate ARN:
@@ -66,7 +66,7 @@ Execute the following command to deploy plain https load balancer:
 ```
 kubectl apply -f receipts/https-load-balancer.yml
 ```
-# Configure MQTT Load Balancer (Optional)
+### Configure MQTT Load Balancer (Optional)
 Configure MQTT load balancer if you plan to use MQTT protocol to connect devices.
 Create TCP load balancer using following command:
 ```
