@@ -50,12 +50,11 @@ Execute the following command to deploy ThingsBoard services:
  ./k8s-deploy-resources.sh
 ```
 After few minutes you may call kubectl get pods. If everything went fine, you should be able to see:
-
-    5x tb-pe-js-executor
-    2x tb-pe-web-ui
-    1x tb-pe-node
-    1x tb-pe-web-report
-    3x zookeeper.
+* 5x tb-pe-js-executor
+* 2x tb-pe-web-ui
+* 1x tb-pe-node
+* 1x tb-pe-web-report
+* 3x zookeeper.
 Every pod should be in the READY state.
 
 You should also deploy the transport microservices. Omit the protocols that you don’t use in order to save resources:
